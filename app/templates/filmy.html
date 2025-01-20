@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% from "macros/fields.html" import render_input_field, render_submit,render_integer_field %}
+
+{% block title %}{% if film_record %}Edit Film{% else %}Add Film{% endif %}{% endblock %}
+
+{% block content %}
+  <h3>{% if film_record %}Edit Film{% else %}Add New Film{% endif %}</h3>
+  <form method="POST" id='film-form'>
+    {{ form.hidden_tag() }}
+    {{ render_input_field(form.nazev) }}
+    {{ render_integer_field(form.rok) }}
+    {{ render_input_field(form.reziser) }}
+    {{ render_integer_field(form.hodnoceni) }}
+    {{ render_submit() }}
+  </form>
+  <br>
+{% endblock %}
